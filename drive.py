@@ -5,6 +5,7 @@ import os
 import shutil
 
 import numpy as np
+import cv2
 import socketio
 import eventlet
 import eventlet.wsgi
@@ -60,8 +61,27 @@ def telemetry(sid, data):
         # The current image from the center camera of the car
         imgString = data["image"]
         image = Image.open(BytesIO(base64.b64decode(imgString)))
-        image_array = np.asarray(image)
-        steering_angle = float(model.predict(image_array[None, :, :, :], batch_size=1))
+        #--------------------------------------------------
+        #model used cv2 that need RGB input, here its read as BGR
+        #imgBGR = image
+        #imageBGR = np.asarray(image)
+        image2 = np.asarray(image)       # from PIL image to numpy array
+        #image2 = utils.preprocess(image2) # apply the preprocessing
+        # predict the steering angle for the image
+        #IMAGE_HEIGHT, IMAGE_WIDTH, IMAGE_CHANNELS = 66, 200, 3
+        #INPUT_SHAPE = (IMAGE_HEIGHT, IMAGE_WIDTH, IMAGE_CHANNELS)
+        #image2 = image2[60:-25, :, :] # remove the sky and the car front
+        #image2 = cv2.resize(image2, (IMAGE_WIDTH, IMAGE_HEIGHT), cv2.INTER_AREA)
+        image2 = cv2.cvtColor(image2, cv2.COLOR_BGR2RGB)
+        image2 = image2[None, :, :, :]
+        #---------------------------------
+        #image2 = image2[None, :, :, :]
+        #imgRGB = cv2.cvtColor(transformed_image_array[0], cv2.COLOR_BGR2RGB)
+        #image = imgRGB
+        #--------------------------------------------------
+        #image_array = np.asarray(image)
+        steering_angle = float(model.predict(image2, batch_size=1))
+        #steering_angle = float(model.predict(image_array[None, :, :, :], batch_size=1))
 
         throttle = controller.update(float(speed))
 
