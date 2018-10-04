@@ -91,37 +91,18 @@ At the end of the process, the vehicle is able to drive autonomously around the 
 The final model architecture (model.py lines 18-24) consisted of a convolution neural network with the following layers and layer sizes ...
 
 Here is the NVIDIA model architecture used in the project
-Lambda(lambda x: x/127.5 - 1., input_shape=(160, 320, 3))
+* Lambda(lambda x: x/127.5 - 1., input_shape=(160, 320, 3))
+* Convolution2D(24,5,5, subsample=(2,2), activation="relu"))
+* Convolution2D(36,5,5, subsample=(2,2), activation="relu")) 
+* Convolution2D(48,5,5, subsample=(2,2), activation="relu")) 
+* Convolution2D(64,3,3, activation="relu")) 
+* Convolution2D(64,3,3, activation="relu"))
+* Flatten()
+* Dense(100)
+* Dense(50)
+* Dense(10)
+* Dense(1)
 
-Convolution2D(24,5,5, subsample=(2,2), activation="relu"))
-
-Convolution2D(36,5,5, subsample=(2,2), activation="relu")) 
-Convolution2D(48,5,5, subsample=(2,2), activation="relu")) 
-Convolution2D(64,3,3, activation="relu")) 
-Convolution2D(64,3,3, activation="relu"))
-Flatten()
-Dense(100)
-Dense(50)
-Dense(10)
-Dense(1)
-
-| Layer					|Description										| 
-|:---------------------:|:-------------------------------------------------:| 
-| Input					| 32x32x1 RGB image   								| 
-| Convolution 5x5		| 1x1 stride, VALID padding, outputs 28x28x6		| #(32-5+1)/1 = 28
-| RELU					|													|
-| Max pooling			| 2x2 stride,  , VALID padding outputs 14x14x6		|
-| Convolution 5x5		| 1x1 stride, VALID padding, outputs 10x10x16		| #(14-5+1)/1 = 10
-| RELU					|													|
-| Max pooling			| 2x2 stride,  , VALID padding outputs 5x5x16		|
-| Flatten				| Output = 400										|
-| Fully connected		| Input = 400. Output = 120							|
-| RELU					|													|
-| Fully connected		| Input = 120. Output = 84							|
-| RELU					|													|
-| Dropout				| keep_prob = 0.5									|
-| Fully connected		| Input = 84. Output = 43							|
-|						|													|
 
 Here is the model summary report:
 _________________________________________________________________
