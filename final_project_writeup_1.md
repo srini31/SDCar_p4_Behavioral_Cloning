@@ -1,3 +1,9 @@
+# **Behavioral Cloning** 
+
+## Writeup
+
+### You can use this file as a template for your writeup if you want to submit it as a markdown file, but feel free to use some other method and submit a pdf if you prefer.
+
 ---
 
 **Behavioral Cloning Project write up**
@@ -11,10 +17,10 @@ The goals / steps of this project are the following:
 
 
 [//]: # (Image References)
-[image1]: /examples/center_2016_12_01_13_32_55_481.jpg "Center Lane Driving"
-[image2]: /examples/center_left_right.jpg "Left, Centerand Right Camera Images"
-[image3]: /examples/crop/crop_3.png "Normal vs Cropped example"
-[image4]: /examples/flip/flip_3.png "Normal vs Flip example"
+[image1]: ./examples/center_2016_12_01_13_32_55_481.jpg "Center Lane Driving"
+[image2]: ./examples/center_left_right.jpg "Left, Centerand Right Camera Images"
+[image3]: ./examples/crop/crop_3.png "Normal vs Cropped example"
+[image4]: ./examples/flip/flip_3.png "Normal vs Flip example"
 
 
 ## Rubric Points
