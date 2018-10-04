@@ -11,10 +11,10 @@ The goals / steps of this project are the following:
 
 
 [//]: # (Image References)
-[image1]: ./examples/center_2016_12_01_13_32_55_481.jpg "Center Lane Driving"
-[image2]: ./examples/center_left_right.jpg "Left, Centerand Right Camera Images"
-[image3]: ./examples/crop/copr_3.png "Normal vs Cropped example"
-[image4]: ./examples/flip/flip_3.png "Normal vs Flip example"
+[image1]: /examples/center_2016_12_01_13_32_55_481.jpg "Center Lane Driving"
+[image2]: /examples/center_left_right.jpg "Left, Centerand Right Camera Images"
+[image3]: /examples/crop/crop_3.png "Normal vs Cropped example"
+[image4]: /examples/flip/flip_3.png "Normal vs Flip example"
 
 
 ## Rubric Points
